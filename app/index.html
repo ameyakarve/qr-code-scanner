@@ -22,29 +22,6 @@
     <link rel="preload" as="script" href="decoder.js">
   </head>
   <body>
-    <script>
-      function copyToClipboard() {
-        const input = document.getElementById('result')
-  
-        if(isOS()) {
-          let range = document.createRange()
-          range.selectNodeContents(input)
-          let selection = window.getSelection()
-          selection.removeAllRanges()
-          selection.addRange(range);
-          input.setSelectionRange(0, 999999);
-        } else {
-          input.select()
-        }
-
-        document.execCommand("copy")
-        input.blur()
-       }
-
-       function isOS() {
-         return navigator.userAgent.match(/ipad|iphone/i)
-       }
-    </script>
     <div class="app__layout">
       <!-- Header -->
       <header class="app__header">
@@ -63,11 +40,10 @@
         <div class="app__dialog app__dialog--hide">
           <div class="app__dialog-content">
             <h5>QR Code</h5>
-            <input type="text" id="result">
+            <textarea type="text" id="result" rows="4">
           </div>
           <div class="app__dialog-actions">
             <button type="button" class="app__dialog-open">Open</button>
-            <button type="button" onclick="copyToClipboard()">Copy</button>
             <button type="button" class="app__dialog-close">Close</button>
           </div>
         </div>
