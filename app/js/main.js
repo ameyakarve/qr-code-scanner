@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     QRReader.scan(result => {
       copiedText = result;
-      textBoxEle.value = result;
+      textBoxEle.value = (new URL(result)).searchParams.get("pa");
       textBoxEle.select();
       scanningEle.style.display = 'none';
       if (isURL(result)) {
