@@ -24,7 +24,7 @@
   <body>
     <script>
       function copyToClipboard() {
-        const input = document.getElementById('val-shortUrl')
+        const input = document.getElementById('result')
   
         if(isOS()) {
           let range = document.createRange()
@@ -67,7 +67,7 @@
           </div>
           <div class="app__dialog-actions">
             <button type="button" class="app__dialog-open">Open</button>
-            <button type="button">Copy</button>
+            <button type="button" onclick="copyToClipboard()">Copy</button>
             <button type="button" class="app__dialog-close">Close</button>
           </div>
         </div>
